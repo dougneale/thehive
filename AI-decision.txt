@@ -1,0 +1,8 @@
+AI decision
+
+how long should the AI wait before playing their card?
+Wait n seconds where 
+
+1. difference between ai number and table number
+2. scales based on how many cards are in play still
+3. learn from the human

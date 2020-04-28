@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>AI number: {gameState.aiNumbers[0]} </p>
+        <p>AI number: {gameState.status !== 'in_progress' && gameState.aiNumbers[0]} </p>
         <p>Table: {gameState.tableNumber}</p>
         <p>My Number: {gameState.myNumbers[0]}</p>
       <button onClick={playMyNumber} disabled={!gameState.myNumbers.length || gameState.status != 'in_progress'}> Play number</button>

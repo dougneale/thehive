@@ -2,13 +2,18 @@ import { useReducer } from 'react'
 import { setTimer, resetTimer} from './timer'
 import gameReducer, { initGame } from './gameReducer'
 
+const ONE_SECOND = 1000
+
 const useGame = () => {
   const [ gameState, dispatch ] = useReducer(gameReducer, undefined, initGame)
 
+  const getWaitTime = () => {
+    return (gameState.aiNumbers[0] - gameState.tableNumber) * ONE_SECOND
+  }
 
   const setAi = () => {
     if (gameState.aiNumbers.length) {
-      const timer = setTimer(playAiNumber, 2000)
+      const timer = setTimer(playAiNumber, getWaitTime())
       return () => resetTimer(timer)
     }
   }
@@ -43,7 +48,6 @@ const useGame = () => {
     playMyNumber,
     playAiNumber,
   }
-
 }
 
 export default useGame
